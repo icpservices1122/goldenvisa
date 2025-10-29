@@ -5,7 +5,7 @@ import type { Metadata } from 'next';
 const SITE_URL = 'https://appicpsmartservicesuae.com';
 
 // ✅ Consistent image URLs using the same logic
-const OG_IMAGE = `${SITE_URL}/og-image.jpg`; // WhatsApp/Facebook image
+const OG_IMAGE = `${SITE_URL}/logo-200.png`; // WhatsApp/Facebook image
 const FAVICON = `${SITE_URL}/favicon.png`;   // Favicon
 
 export const metadata: Metadata = {
