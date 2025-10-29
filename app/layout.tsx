@@ -2,38 +2,48 @@
 import './globals.css';
 import type { Metadata } from 'next';
 
-// ✅ Use your actual domain
 const SITE_URL = 'https://appicpsmartservicesuae.com';
-const OG_IMAGE = `${SITE_URL}/og-image.jpg`;
+const OG_IMAGE = `${SITE_URL}/banner.png`; // Using existing banner.png from your site
 
 export const metadata: Metadata = {
   title: {
-    default: 'ICP Smart Services | Federal Authority For Identification and Citizenship',
+    default: 'ICP Smart Services | Federal Authority For Identity, Citizenship, Customs & Port Security',
     template: '%s | ICP Smart Services',
   },
   description:
-    'Access ICP Smart Services, Emirates ID, Visa Status, and more. Federal Authority for Identity and Citizenship, UAE.',
+    'Access ICP Smart Services, Emirates ID, Visa Status, and more. Federal Authority for Identity, Citizenship, Customs & Port Security, UAE.',
+  keywords: [
+    'ICP Smart Services',
+    'Emirates ID',
+    'UAE Visa',
+    'Federal Authority UAE',
+    'Identity and Citizenship',
+    'Golden Services UAE',
+    'UAE Residency',
+    'GCC Citizens Services',
+  ],
 
   openGraph: {
     type: 'website',
-    url: `${SITE_URL}/`,
-    title: 'ICP Smart Services | Federal Authority For Identification and Citizenship',
+    url: SITE_URL,
+    title: 'ICP Smart Services | Federal Authority For Identity, Citizenship, Customs & Port Security',
     description:
-      'Access ICP Smart Services, Emirates ID, Visa Status, and more.',
+      'Access ICP Smart Services, Emirates ID, Visa Status, and more. Federal Authority for Identity, Citizenship, Customs & Port Security, UAE.',
     siteName: 'ICP Smart Services',
+    locale: 'en_US',
     images: [
       {
         url: OG_IMAGE,
         width: 1200,
         height: 630,
-        alt: 'ICP Smart Services',
+        alt: 'ICP Smart Services - Federal Authority for Identity, Citizenship, Customs & Port Security',
       },
     ],
   },
 
   twitter: {
     card: 'summary_large_image',
-    title: 'ICP Smart Services | Federal Authority For Identification and Citizenship',
+    title: 'ICP Smart Services | Federal Authority For Identity, Citizenship, Customs & Port Security',
     description:
       'Access ICP Smart Services, Emirates ID, Visa Status, and more.',
     images: [OG_IMAGE],
@@ -41,9 +51,10 @@ export const metadata: Metadata = {
 
   icons: {
     icon: '/favicon.png',
-    shortcut: '/favicon.png',
     apple: '/favicon.png',
   },
+
+  metadataBase: new URL(SITE_URL),
 };
 
 export default function RootLayout({
@@ -57,7 +68,11 @@ export default function RootLayout({
         {/* Preconnects for performance */}
         <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link
+          rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossOrigin="anonymous"
+        />
 
         {/* Font Awesome */}
         <link
@@ -73,36 +88,12 @@ export default function RootLayout({
           rel="stylesheet"
         />
 
-        {/* Meta Basics */}
+        {/* Viewport & Theme */}
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta name="theme-color" content="#ffffff" />
-        <link rel="canonical" href={SITE_URL} />
+        <meta name="theme-color" content="#003366" />
 
-        {/* Icons */}
-        <link rel="icon" type="image/png" href="/favicon.png" />
-        <link rel="apple-touch-icon" href="/favicon.png" />
-
-        {/* ✅ Facebook App ID - Get this from Facebook Developers */}
-        <meta property="fb:app_id" content="YOUR_FACEBOOK_APP_ID_HERE" />
-
-        {/* Open Graph / WhatsApp */}
-        <meta property="og:type" content="website" />
-        <meta property="og:title" content="ICP Smart Services | Federal Authority For Identification and Citizenship" />
-        <meta property="og:description" content="Access ICP Smart Services, Emirates ID, Visa Status, and more." />
-        <meta property="og:url" content={SITE_URL} />
-        <meta property="og:image" content={OG_IMAGE} />
-        <meta property="og:image:secure_url" content={OG_IMAGE} />
-        <meta property="og:image:type" content="image/jpeg" />
-        <meta property="og:image:width" content="1200" />
-        <meta property="og:image:height" content="630" />
-        <meta property="og:site_name" content="ICP Smart Services" />
-        <meta property="og:locale" content="en_US" />
-
-        {/* Twitter */}
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="ICP Smart Services | Federal Authority For Identification and Citizenship" />
-        <meta name="twitter:description" content="Access ICP Smart Services, Emirates ID, Visa Status, and more." />
-        <meta name="twitter:image" content={OG_IMAGE} />
+        {/* Optional: Facebook App ID (only if you have one) */}
+        {/* <meta property="fb:app_id" content="YOUR_FACEBOOK_APP_ID_HERE" /> */}
       </head>
       <body className="font-sans antialiased">{children}</body>
     </html>
