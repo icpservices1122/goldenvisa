@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   },
   description: 'Access ICP Smart Services, Emirates ID, Visa Status, and more. Federal Authority for Identity and Citizenship, UAE.',
   
-  // Open Graph Meta Tags - USING ABSOLUTE URL FOR IMAGE
+  // Open Graph Meta Tags - WhatsApp uses these
   openGraph: {
     type: 'website',
     url: `${SITE_URL}/`,
@@ -20,34 +20,26 @@ export const metadata: Metadata = {
     siteName: 'ICP Smart Services',
     images: [
       {
-        url: `${SITE_URL}/favicon.png`, // ABSOLUTE URL REQUIRED
-        width: 512,
-        height: 512,
+        url: `${SITE_URL}/og-image.jpg`, // Use JPG and proper OG image
+        width: 1200,
+        height: 630,
         alt: 'ICP Smart Services',
       },
     ],
   },
 
-  // Twitter Card Meta Tags - USING ABSOLUTE URL FOR IMAGE
+  // Twitter Card Meta Tags
   twitter: {
     card: 'summary_large_image',
     title: 'ICP Smart Services | Federal Authority For Identification and Citizenship',
     description: 'Access ICP Smart Services, Emirates ID, Visa Status, and more.',
-    images: [`${SITE_URL}/favicon.png`], // ABSOLUTE URL REQUIRED
+    images: [`${SITE_URL}/og-image.jpg`],
   },
 
-  // Simple icon configuration using only favicon.png
   icons: {
-    icon: '/favicon.png',
-    shortcut: '/favicon.png',
-    apple: '/favicon.png',
-    other: [
-      {
-        rel: 'icon',
-        url: '/favicon.png',
-        type: 'image/png',
-      },
-    ],
+    icon: '/favicon.ico',
+    shortcut: '/favicon.ico',
+    apple: '/apple-touch-icon.png',
   },
 };
 
@@ -59,7 +51,7 @@ export default function RootLayout({
   return (
     <html lang="en-US">
       <head>
-        {/* Preconnect to CDNs for better performance */}
+        {/* Preconnect to CDNs */}
         <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
@@ -68,7 +60,6 @@ export default function RootLayout({
         <link
           rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
-          integrity="sha512-SfTiTlX6kk+qitfevl/7LibUOeJWlt9rbyDn92a1DqWOw9vWG2MFoays0sgObmWazO5BQPiFucnnEAjpAB+/Sw=="
           crossOrigin="anonymous"
           referrerPolicy="no-referrer"
         />
@@ -85,26 +76,27 @@ export default function RootLayout({
         
         {/* Viewport */}
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        
-        {/* Theme Color */}
         <meta name="theme-color" content="#ffffff" />
         
         {/* Canonical URL */}
         <link rel="canonical" href="https://appicpsmartservicesuae.com/" />
         
-        {/* MANUALLY ADD ICON LINKS USING ONLY FAVICON.PNG */}
-        <link rel="shortcut icon" href="/favicon.png" />
-        <link rel="icon" href="/favicon.png" type="image/png" />
-        <link rel="apple-touch-icon" href="/favicon.png" />
+        {/* ICONS - Multiple formats for compatibility */}
+        <link rel="shortcut icon" href="/favicon.ico" />
+        <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
         
-        {/* For older browsers that expect ico format */}
-        <link rel="icon" href="/favicon.png" type="image/x-icon" />
-
-        {/* ADDITIONAL META TAGS FOR BETTER LOGO DISPLAY */}
-        <meta property="og:image:type" content="image/png" />
-        <meta property="og:image:width" content="512" />
-        <meta property="og:image:height" content="512" />
-        <meta name="twitter:image:alt" content="ICP Smart Services Logo" />
+        {/* ADDITIONAL OG TAGS FOR WHATSAPP */}
+        <meta property="og:image:type" content="image/jpeg" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:image:alt" content="ICP Smart Services" />
+        
+        {/* For WhatsApp specifically */}
+        <meta property="og:locale" content="en_US" />
+        <meta property="og:site_name" content="ICP Smart Services" />
       </head>
       <body className="font-sans antialiased">
         {children}
