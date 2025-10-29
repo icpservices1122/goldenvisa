@@ -4,14 +4,62 @@ import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: {
-    default: 'ICA Smart Services | Federal Authority For Identification and ... ',
-    template: '%s | Your Website Title',
+    default: 'ICP Smart Services | Federal Authority For Identification and Citizenship',
+    template: '%s | ICP Smart Services',
   },
-  description: 'Your website description',
+  description: 'Access ICP Smart Services, Emirates ID, Visa Status, and more. Federal Authority for Identity and Citizenship, UAE.',
+  keywords: 'ICP, Smart Services, Emirates ID, Visa Status, UAE, Federal Authority, Identity, Citizenship',
+  authors: [{ name: 'Federal Authority for Identity and Citizenship, UAE' }],
+  robots: 'index, follow',
+  
+  // Open Graph Meta Tags
+  openGraph: {
+    type: 'website',
+    url: 'https://app.icpsmartservicesuae.com/',
+    title: 'ICP Smart Services | Federal Authority For Identification and Citizenship',
+    description: 'Access ICP Smart Services, Emirates ID, Visa Status, and more.',
+    siteName: 'ICP Smart Services',
+    images: [
+      {
+        url: '/og-image.png', // You need to create this image
+        width: 1200,
+        height: 630,
+        alt: 'ICP Smart Services',
+      },
+    ],
+  },
+
+  // Twitter Card Meta Tags
+  twitter: {
+    card: 'summary_large_image',
+    site: '@icp_uae',
+    creator: '@icp_uae',
+    title: 'ICP Smart Services | Federal Authority For Identification and Citizenship',
+    description: 'Access ICP Smart Services, Emirates ID, Visa Status, and more.',
+    images: ['/og-image.png'],
+  },
+
+  // Additional Meta
+  manifest: '/manifest.json',
   icons: {
-    icon: '/favicon.png',
-    shortcut: '/favicon.png',
-    apple: '/favicon.png',
+    icon: [
+      { url: '/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
+      { url: '/favicon-32x32.png', sizes: '32x32', type: 'image/png' },
+    ],
+    shortcut: '/favicon.ico',
+    apple: [
+      { url: '/apple-touch-icon.png', sizes: '180x180', type: 'image/png' },
+    ],
+    other: [
+      {
+        rel: 'apple-touch-icon-precomposed',
+        url: '/apple-touch-icon-precomposed.png',
+      },
+    ],
+  },
+  other: {
+    'msapplication-TileColor': '#ffffff',
+    'msapplication-config': '/browserconfig.xml',
   },
 };
 
@@ -50,6 +98,9 @@ export default function RootLayout({
         {/* Additional meta tags for better SEO and PWA support */}
         <meta name="theme-color" content="#000000" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        
+        {/* Canonical URL */}
+        <link rel="canonical" href="https://app.icpsmartservicesuae.com/" />
       </head>
       <body className="font-sans antialiased">
         {children}
