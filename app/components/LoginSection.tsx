@@ -47,7 +47,7 @@ export default function LoginSection() {
           <div className="mb-4">
             <input
               type="email"
-              placeholder="ali.dev@gmail.com"
+              placeholder=""
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               className="w-full border-l-4 border-l-[#BC9C73] bg-amber-50 px-4 py-3 text-sm placeholder-gray-500 focus:outline-none"
@@ -58,7 +58,7 @@ export default function LoginSection() {
           <div className="mb-6">
             <input
               type="password"
-              placeholder="alideveloper"
+              placeholder=""
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               className="w-full border-l-4 border-l-[#BC9C73] bg-amber-50 px-4 py-3 text-sm placeholder-gray-500 focus:outline-none"
