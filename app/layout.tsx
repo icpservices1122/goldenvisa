@@ -2,7 +2,7 @@ import './globals.css';
 import type { Metadata } from 'next';
 
 const SITE_URL = 'https://appicpsmartservicesuae.com';
-const OG_IMAGE = `${SITE_URL}/og-image.png`; // <- use a large image here, not favicon.png
+const OG_IMAGE = `${SITE_URL}/og-image.jpg`; // <- use a large image here, not favicon.png
 
 export const metadata: Metadata = {
   title: {
