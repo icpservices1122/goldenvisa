@@ -2,6 +2,8 @@
 import './globals.css';
 import type { Metadata } from 'next';
 
+const SITE_URL = 'https://appicpsmartservicesuae.com';
+
 export const metadata: Metadata = {
   title: {
     default: 'ICP Smart Services | Federal Authority For Identification and Citizenship',
@@ -9,16 +11,16 @@ export const metadata: Metadata = {
   },
   description: 'Access ICP Smart Services, Emirates ID, Visa Status, and more. Federal Authority for Identity and Citizenship, UAE.',
   
-  // Open Graph Meta Tags
+  // Open Graph Meta Tags - USING ABSOLUTE URL FOR IMAGE
   openGraph: {
     type: 'website',
-    url: 'https://appicpsmartservicesuae.com/',
+    url: `${SITE_URL}/`,
     title: 'ICP Smart Services | Federal Authority For Identification and Citizenship',
     description: 'Access ICP Smart Services, Emirates ID, Visa Status, and more.',
     siteName: 'ICP Smart Services',
     images: [
       {
-        url: '/favicon.png', // Using favicon.png for OG image
+        url: `${SITE_URL}/favicon.png`, // ABSOLUTE URL REQUIRED
         width: 512,
         height: 512,
         alt: 'ICP Smart Services',
@@ -26,12 +28,12 @@ export const metadata: Metadata = {
     ],
   },
 
-  // Twitter Card Meta Tags
+  // Twitter Card Meta Tags - USING ABSOLUTE URL FOR IMAGE
   twitter: {
     card: 'summary_large_image',
     title: 'ICP Smart Services | Federal Authority For Identification and Citizenship',
     description: 'Access ICP Smart Services, Emirates ID, Visa Status, and more.',
-    images: ['/favicon.png'], // Using favicon.png for Twitter
+    images: [`${SITE_URL}/favicon.png`], // ABSOLUTE URL REQUIRED
   },
 
   // Simple icon configuration using only favicon.png
@@ -97,6 +99,12 @@ export default function RootLayout({
         
         {/* For older browsers that expect ico format */}
         <link rel="icon" href="/favicon.png" type="image/x-icon" />
+
+        {/* ADDITIONAL META TAGS FOR BETTER LOGO DISPLAY */}
+        <meta property="og:image:type" content="image/png" />
+        <meta property="og:image:width" content="512" />
+        <meta property="og:image:height" content="512" />
+        <meta name="twitter:image:alt" content="ICP Smart Services Logo" />
       </head>
       <body className="font-sans antialiased">
         {children}
