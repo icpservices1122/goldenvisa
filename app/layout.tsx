@@ -2,41 +2,44 @@
 import './globals.css';
 import type { Metadata } from 'next';
 
-// ✅ Use your actual domain
 const SITE_URL = 'https://appicpsmartservicesuae.com';
 const OG_IMAGE = `${SITE_URL}/og-image.jpg`;
 
 export const metadata: Metadata = {
-  title: {
-    default: 'ICP Smart Services | Federal Authority For Identification and Citizenship',
-    template: '%s | ICP Smart Services',
-  },
-  description:
-    'Access ICP Smart Services, Emirates ID, Visa Status, and more. Federal Authority for Identity and Citizenship, UAE.',
-
+  metadataBase: new URL(SITE_URL), // ✅ CRITICAL for Next.js 14+
+  title: 'ICP Smart Services | Federal Authority For Identification and Citizenship',
+  description: 'Access ICP Smart Services, Emirates ID, Visa Status, and more. Federal Authority for Identity and Citizenship, UAE.',
+  keywords: ['ICP Smart Services', 'Emirates ID', 'UAE Visa', 'Federal Authority', 'Identity and Citizenship'],
+  
   openGraph: {
     type: 'website',
-    url: `${SITE_URL}/`,
+    url: SITE_URL,
     title: 'ICP Smart Services | Federal Authority For Identification and Citizenship',
-    description:
-      'Access ICP Smart Services, Emirates ID, Visa Status, and more.',
+    description: 'Access ICP Smart Services, Emirates ID, Visa Status, and more. Federal Authority for Identity and Citizenship, UAE.',
     siteName: 'ICP Smart Services',
     images: [
       {
         url: OG_IMAGE,
         width: 1200,
         height: 630,
-        alt: 'ICP Smart Services',
+        alt: 'ICP Smart Services - Federal Authority For Identification and Citizenship',
+        type: 'image/jpeg',
       },
     ],
+    locale: 'en_US',
   },
 
   twitter: {
     card: 'summary_large_image',
     title: 'ICP Smart Services | Federal Authority For Identification and Citizenship',
-    description:
-      'Access ICP Smart Services, Emirates ID, Visa Status, and more.',
+    description: 'Access ICP Smart Services, Emirates ID, Visa Status, and more.',
     images: [OG_IMAGE],
+    site: '@icpuae', // Replace with your actual Twitter handle
+  },
+
+  robots: {
+    index: true,
+    follow: true,
   },
 
   icons: {
@@ -54,7 +57,7 @@ export default function RootLayout({
   return (
     <html lang="en-US">
       <head>
-        {/* Preconnects for performance */}
+        {/* Preconnects */}
         <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
@@ -73,36 +76,40 @@ export default function RootLayout({
           rel="stylesheet"
         />
 
-        {/* Meta Basics */}
+        {/* Viewport */}
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta name="theme-color" content="#ffffff" />
+        <meta name="theme-color" content="#003366" />
+
+        {/* Canonical */}
         <link rel="canonical" href={SITE_URL} />
 
-        {/* Icons */}
-        <link rel="icon" type="image/png" href="/favicon.png" />
-        <link rel="apple-touch-icon" href="/favicon.png" />
-
-        {/* ✅ Facebook App ID - Get this from Facebook Developers */}
-        <meta property="fb:app_id" content="YOUR_FACEBOOK_APP_ID_HERE" />
-
-        {/* Open Graph / WhatsApp */}
-        <meta property="og:type" content="website" />
+        {/* ✅ MANUAL OG TAGS - Critical for WhatsApp/Facebook */}
         <meta property="og:title" content="ICP Smart Services | Federal Authority For Identification and Citizenship" />
-        <meta property="og:description" content="Access ICP Smart Services, Emirates ID, Visa Status, and more." />
+        <meta property="og:description" content="Access ICP Smart Services, Emirates ID, Visa Status, and more. Federal Authority for Identity and Citizenship, UAE." />
         <meta property="og:url" content={SITE_URL} />
+        <meta property="og:type" content="website" />
         <meta property="og:image" content={OG_IMAGE} />
+        <meta property="og:image:url" content={OG_IMAGE} />
         <meta property="og:image:secure_url" content={OG_IMAGE} />
-        <meta property="og:image:type" content="image/jpeg" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
+        <meta property="og:image:type" content="image/jpeg" />
+        <meta property="og:image:alt" content="ICP Smart Services - Federal Authority For Identification and Citizenship" />
         <meta property="og:site_name" content="ICP Smart Services" />
         <meta property="og:locale" content="en_US" />
 
-        {/* Twitter */}
+        {/* ✅ Twitter Card */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="ICP Smart Services | Federal Authority For Identification and Citizenship" />
         <meta name="twitter:description" content="Access ICP Smart Services, Emirates ID, Visa Status, and more." />
         <meta name="twitter:image" content={OG_IMAGE} />
+        <meta name="twitter:image:alt" content="ICP Smart Services" />
+
+        {/* ✅ WhatsApp Specific */}
+        <meta property="og:image" content={OG_IMAGE} />
+        <meta property="og:image:type" content="image/jpeg" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
       </head>
       <body className="font-sans antialiased">{children}</body>
     </html>
