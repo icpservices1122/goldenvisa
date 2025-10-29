@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   },
   description: 'Access ICP Smart Services, Emirates ID, Visa Status, and more. Federal Authority for Identity and Citizenship, UAE.',
   
-  // Open Graph Meta Tags - WhatsApp uses these
+  // Open Graph Meta Tags - FORCE using favicon.png
   openGraph: {
     type: 'website',
     url: `${SITE_URL}/`,
@@ -20,9 +20,9 @@ export const metadata: Metadata = {
     siteName: 'ICP Smart Services',
     images: [
       {
-        url: `${SITE_URL}/og-image.jpg`, // Use JPG and proper OG image
-        width: 1200,
-        height: 630,
+        url: `${SITE_URL}/favicon.png`, // FORCE using your favicon.png
+        width: 512,
+        height: 512,
         alt: 'ICP Smart Services',
       },
     ],
@@ -33,13 +33,13 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'ICP Smart Services | Federal Authority For Identification and Citizenship',
     description: 'Access ICP Smart Services, Emirates ID, Visa Status, and more.',
-    images: [`${SITE_URL}/og-image.jpg`],
+    images: [`${SITE_URL}/favicon.png`], // FORCE using your favicon.png
   },
 
   icons: {
-    icon: '/favicon.ico',
-    shortcut: '/favicon.ico',
-    apple: '/apple-touch-icon.png',
+    icon: '/favicon.png',
+    shortcut: '/favicon.png',
+    apple: '/favicon.png',
   },
 };
 
@@ -81,22 +81,27 @@ export default function RootLayout({
         {/* Canonical URL */}
         <link rel="canonical" href="https://appicpsmartservicesuae.com/" />
         
-        {/* ICONS - Multiple formats for compatibility */}
-        <link rel="shortcut icon" href="/favicon.ico" />
-        <link rel="icon" type="image/x-icon" href="/favicon.ico" />
-        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
-        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+        {/* ICONS - Using ONLY favicon.png */}
+        <link rel="shortcut icon" href="/favicon.png" />
+        <link rel="icon" type="image/png" href="/favicon.png" />
+        <link rel="apple-touch-icon" href="/favicon.png" />
         
-        {/* ADDITIONAL OG TAGS FOR WHATSAPP */}
-        <meta property="og:image:type" content="image/jpeg" />
-        <meta property="og:image:width" content="1200" />
-        <meta property="og:image:height" content="630" />
+        {/* FORCE WHATSAPP TO USE FAVICON.PNG - ADD THESE MANUAL META TAGS */}
+        <meta property="og:image" content={`${SITE_URL}/favicon.png`} />
+        <meta property="og:image:url" content={`${SITE_URL}/favicon.png`} />
+        <meta property="og:image:secure_url" content={`${SITE_URL}/favicon.png`} />
+        <meta property="og:image:type" content="image/png" />
+        <meta property="og:image:width" content="512" />
+        <meta property="og:image:height" content="512" />
         <meta property="og:image:alt" content="ICP Smart Services" />
         
         {/* For WhatsApp specifically */}
         <meta property="og:locale" content="en_US" />
         <meta property="og:site_name" content="ICP Smart Services" />
+        
+        {/* Twitter fallback */}
+        <meta name="twitter:image" content={`${SITE_URL}/favicon.png`} />
+        <meta name="twitter:image:src" content={`${SITE_URL}/favicon.png`} />
       </head>
       <body className="font-sans antialiased">
         {children}
