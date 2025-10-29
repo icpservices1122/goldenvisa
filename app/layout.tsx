@@ -88,7 +88,7 @@ export default function RootLayout({
         <meta name="theme-color" content="#ffffff" />
         
         {/* Canonical URL */}
-        <link rel="canonical" href="https://app.icpsmartservicesuae.com/" />
+        <link rel="canonical" href="https://appicpsmartservicesuae.com/" />
         
         {/* MANUALLY ADD ICON LINKS USING ONLY FAVICON.PNG */}
         <link rel="shortcut icon" href="/favicon.png" />
