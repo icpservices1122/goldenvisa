@@ -3,7 +3,7 @@ import './globals.css';
 import type { Metadata } from 'next';
 
 const SITE_URL = 'https://appicpsmartservicesuae.com';
-const OG_IMAGE = `${SITE_URL}/og-image.jpg`;
+const OG_IMAGE = `${SITE_URL}/og-image.jpeg`;
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL), // ✅ CRITICAL for Next.js 14+
