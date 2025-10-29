@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   // Open Graph Meta Tags
   openGraph: {
     type: 'website',
-    url: 'https://app.icpsmartservicesuae.com/',
+    url: 'https://appicpsmartservicesuae.com/',
     title: 'ICP Smart Services | Federal Authority For Identification and Citizenship',
     description: 'Access ICP Smart Services, Emirates ID, Visa Status, and more.',
     siteName: 'ICP Smart Services',
